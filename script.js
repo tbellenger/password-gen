@@ -33,17 +33,20 @@ var password = {
       // how to make sure we took at least one of each?
     }
     return pass;
+  }, 
+  reset : function() {
+    this.hasLowerCase = false;
+    this.hasUpperCase = false;
+    this.hasNumeric = false;
+    this.hasSpecial = false;
+    this.setOfChars = '';
+    this.len = 8;
   }
-}
-
-function getRandomSpecialChar() {
-  // length should be 32 - must check on last char if its possible or not
-  var specialChar = specialChars.charAt(Math.floor(Math.random() * specialChars.length));
-  return specialChar;
 }
 
 var getPassLenMessage = 'Please enter password length (8 - 128)';
 
+// recursive function to prompt until valid input data is entered
 function getPassLen(message) {
   var len = window.prompt(message);
   if (parseInt(len) == len) {
@@ -59,19 +62,25 @@ function getPassLen(message) {
 
 // Generate password
 function generatePassword() {
+  password.reset();
   // request password length
   // veify password length input
   password.len = getPassLen(getPassLenMessage);
   console.log(password.len);
 
-  // ask whether to include lower case
-  password.hasLowerCase = window.confirm("Include lower case letters?");
-  // ask whether to include upper case
-  password.hasUpperCase = window.confirm("Include upper case letters?");
-  // ask whether to include numeric
-  password.hasNumeric = window.confirm("Include numerics characters?");
-  // ask whether to include special chars
-  password.hasSpecial = window.confirm("Include special characters?");
+  while (password.hasLowerCase || 
+    password.hasUpperCase ||
+    password.hasSpecial ||
+    password.hasNumeric) {
+    // ask whether to include lower case
+    password.hasLowerCase = window.confirm("Include lower case letters?");
+    // ask whether to include upper case
+    password.hasUpperCase = window.confirm("Include upper case letters?");
+    // ask whether to include numeric
+    password.hasNumeric = window.confirm("Include numerics characters?");
+    // ask whether to include special chars
+    password.hasSpecial = window.confirm("Include special characters?");
+  }
   // generate the password
   var pass = password.genPass();
   console.log(password);
@@ -84,7 +93,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
