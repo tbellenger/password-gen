@@ -48,12 +48,12 @@ function getPassLen(message) {
   var len = window.prompt(message);
   if (parseInt(len) == len) {
     if (parseInt(len) < 8 || parseInt(len) > 128) {
-      getPassLen('Error: length must be between 8 and 128\n' + getPassLenMessage);
+      return getPassLen('Error: length must be between 8 and 128\n' + getPassLenMessage);
     } else {
       return parseInt(len);
     }
   } else {
-    getPassLen('Error: not a number\n' + getPassLenMessage);
+    return getPassLen('Error: not a number\n' + getPassLenMessage);
   }
 }
 
