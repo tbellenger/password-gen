@@ -68,10 +68,10 @@ function generatePassword() {
   password.len = getPassLen(getPassLenMessage);
   console.log(password.len);
 
-  while (password.hasLowerCase || 
-    password.hasUpperCase ||
-    password.hasSpecial ||
-    password.hasNumeric) {
+  while (!password.hasLowerCase && 
+    !password.hasUpperCase &&
+    !password.hasSpecial &&
+    !password.hasNumeric) {
     // ask whether to include lower case
     password.hasLowerCase = window.confirm("Include lower case letters?");
     // ask whether to include upper case
@@ -80,6 +80,12 @@ function generatePassword() {
     password.hasNumeric = window.confirm("Include numerics characters?");
     // ask whether to include special chars
     password.hasSpecial = window.confirm("Include special characters?");
+    if (!password.hasLowerCase &&
+      !password.hasUpperCase &&
+      !password.hasNumeric &&
+      !password.hasSpecial) {
+        window.alert("At least one character type must be selected");
+      }
   }
   // generate the password
   var pass = password.genPass();
