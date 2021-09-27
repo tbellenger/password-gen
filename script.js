@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// special chars
+// char sets as options
 var specialChars = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var alpha = "abcdefghijklmnopqrstuvwxyz";
 var numeric = "0123456789";
@@ -66,7 +66,6 @@ function generatePassword() {
   // request password length
   // veify password length input
   password.len = getPassLen(getPassLenMessage);
-  console.log(password.len);
 
   while (!password.hasLowerCase && 
     !password.hasUpperCase &&
@@ -77,7 +76,7 @@ function generatePassword() {
     // ask whether to include upper case
     password.hasUpperCase = window.confirm("Include upper case letters?");
     // ask whether to include numeric
-    password.hasNumeric = window.confirm("Include numerics characters?");
+    password.hasNumeric = window.confirm("Include numbers?");
     // ask whether to include special chars
     password.hasSpecial = window.confirm("Include special characters?");
     if (!password.hasLowerCase &&
@@ -89,7 +88,6 @@ function generatePassword() {
   }
   // generate the password
   var pass = password.genPass();
-  console.log(password);
   return pass;
 }
 
