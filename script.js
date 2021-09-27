@@ -13,12 +13,12 @@ var password = {
   hasSpecial : 'false',
   setOfChars : '',
   len : 8,
-  genPass : function {
+  genPass : function() {
     if (this.hasLowerCase) {
       this.setOfChars = this.setOfChars + alpha;
     }
     if (this.hasUpperCase) {
-      this.setOfChars = this.setOfChars + String.toUpperCase(alpha);
+      this.setOfChars = this.setOfChars + alpha.toUpperCase();
     }
     if (this.hasNumeric) {
       this.setOfChars = this.setOfChars + numeric;
