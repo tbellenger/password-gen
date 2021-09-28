@@ -5,6 +5,6 @@ The password generator uses JavaScript to prompt the user for inputs on password
 ![screenshot](./assets/images/password-gen-screenshot.png)
 
 ## Live App Link
-[Password Generator](https://tbellenger.github.io/password-gen)
+[Password Generator](https://tbellenger.github.io/password-gen/)
 
 
