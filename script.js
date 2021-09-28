@@ -6,6 +6,7 @@ var specialChars = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var alpha = "abcdefghijklmnopqrstuvwxyz";
 var numeric = "0123456789";
 
+// password object with req. chars and functions to generate password
 var password = {
   hasLowerCase : 'false',
   hasUpperCase : 'false',
