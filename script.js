@@ -106,14 +106,11 @@ function generatePassword() {
   // by checking if the regex text passes
   var pass = '';
   var regexGood = false;
-  console.log('generating password');
+
   while (!regexGood) {
     pass = password.genPass();
     var regex = new RegExp('^' + password.regexSearch + '.*$');
-    console.log(pass);
-    console.log('^' + password.regexSearch + '.*$');
     regexGood = regex.test(pass);
-    console.log('passes regex ' + regexGood);
   }
   
   return pass;
